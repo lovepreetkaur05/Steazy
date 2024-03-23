@@ -1,7 +1,3 @@
-<?php 
-session_start(); 
-include "db.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +10,7 @@ include "db.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steazy|Signup</title>
+    <title>Steazy|login</title>
 </head>
 <body>
     <div class="main">
@@ -24,55 +20,40 @@ include "db.php";
             </div>
             <div class="left-c">
                 <div class="left-cin">
-                <h1>Welcome Back!</h1>
+                <h1>JOIN US!</h1>
                 <p>
-                    To keep connected with us please<br>
-login with your personal info.
+                    To join our E-Learning Community <br>
+Sign up will your personal details.
                 </p>
-                <a href="loginpage.php" class="hr">SIGN IN</a>
+                <a href="signuppage.php">SIGN UP</a>
                 </div>
             </div>
         </div>
         <div class="right"><div class="s">
             <div>
-                <h1>Create Account</h1>
+                <h1>Login</h1>
             </div>
             <div>
-                <form method="post">
+                <form action="login.php"  method="post">
+
+                <?php if (isset($_GET['error'])) { ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                    <?php } ?>
+
                     <div class="form-input">
                         <input type="text" name="uname" placeholder="Username" />
                     </div>
                     <div class="form-input">
-                        <input type="email" name="email" placeholder="Email address" />
-                    </div>
-                    <div class="form-input">
                         <input type="password" name="password" placeholder="Password" />
                     </div>
-                    <div class="form-input">
-                        <input type="password" placeholder="Confirm password" />
-                    </div>
+                    <a href="#">Forgot password?</a>
                     <div>
-                        <input class="" type="submit" name="register" class="sub" value="SIGN UP">
+                        <input type="submit" class="sub" value="SIGN IN">
                     </div>
                 </form>
             </div>
             </div>
         </div>
     </div>
-    <?php
-  
-  if(isset($_POST['register']))
-  {
-	$uname =$_POST['uname'];
-    $email =$_POST['email'];
-	$password =$_POST['password'];
-	$encpass = md5($password);
-
-	$ins_query="INSERT INTO registration_master (user_name,email,password,display_password) VALUES('$uname','$email','$encpass','$password')";
-	mysqli_query($con,$ins_query);
-	echo "<script>alert('Data Inserted Successfully.');</script>";
-  }
-
-?>
 </body>
 </html>

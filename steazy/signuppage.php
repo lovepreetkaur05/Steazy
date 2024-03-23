@@ -29,7 +29,7 @@ include "db.php";
                     To keep connected with us please<br>
 login with your personal info.
                 </p>
-                <a href="loginpage.php" class="hr">SIGN IN</a>
+                <a href="loginpage.php">SIGN IN</a>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@ login with your personal info.
                         <input type="password" placeholder="Confirm password" />
                     </div>
                     <div>
-                        <input class="" type="submit" name="register" class="sub" value="SIGN UP">
+                        <input type="submit" name="register" class="sub" value="SIGN UP">
                     </div>
                 </form>
             </div>
